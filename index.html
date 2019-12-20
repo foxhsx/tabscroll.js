@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab滚动切换</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="tabScroll-box">
+        <div class="tab">
+            <div class="tab-scroll active">test1</div>
+            <div class="tab-scroll">test2</div>
+            <div class="tab-scroll">test3</div>
+            <div class="tab-scroll">test4</div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-content-item">
+                <div class="tab-item-title">test1</div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+            </div>
+            <div class="tab-content-item">
+                <div class="tab-item-title">test2</div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+            </div>
+            <div class="tab-content-item">
+                <div class="tab-item-title">test3</div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+            </div>
+            <div class="tab-content-item">
+                <div class="tab-item-title">test4</div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+                <div class="tab-item-box"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="./js/index.js"></script>
+<script>
+  let tabScroll = new TabScroll({
+    eletabElementments: 'tab-scroll',
+    areaElement: 'tab-content-item',
+    fixdTabHeight: 82,
+    activeClass: 'active'
+  });
+
+  console.log(tabScroll);
+</script>
