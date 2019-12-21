@@ -7,6 +7,7 @@
  * @param {Number} [options.clientHeight] 页面窗口高度
  * @param {Number} [options.scrollHeight] 滚动条高度
  * @param {Number} [options.fixdTabHeight] 滚动条高度
+ * @param {String} [options.behavior] 滚动动画，暂只支持平滑和瞬移
  * @return {TabScroll}
  * 
 */
@@ -53,6 +54,9 @@ var TabScroll = function (options) {
     // class类拼接
     this.newClassName = '';
 
+    // 点击tab滚动到当前对应位置
+    this.behavior = options.behavior || 'smooth';
+
     // 初始化方法
     this.init();
     return this;
@@ -82,6 +86,16 @@ TabScroll.prototype.init = function () {
     window.onscroll = function () {
         _this.scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
         _this.scrollTab();
+    }
+    // 给tab添加点击事件
+    for (let i=0;i < this.length; i++) {
+      this.eletabArr[i].addEventListener('click', function () {
+        let offsetTop = _this.areaArr[i].offsetTop - _this.fixdTabHeight + 5;
+        window.scrollTo({
+          top: offsetTop,                     // 滚动到的位置
+          behavior: _this.behavior            // 设置滚动行为为平滑的滚动
+        });
+      })
     }
 }
 
